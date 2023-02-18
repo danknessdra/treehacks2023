@@ -5,7 +5,16 @@
   border: 0;
   line-height: 1.5;
 }
+.card {
+  width: 18rem;
+}
 
+.card-container{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
 body {
   font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", helvetica,
     sans-serif;
@@ -14,7 +23,7 @@ body {
 main {
   padding-top: 1em;
   padding-bottom: 1em;
-  width: min(800px, 95vw);
+  width: min(900px, 95vw);
   margin: 0 auto;
 }
 

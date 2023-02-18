@@ -19,7 +19,6 @@ export default function App() {
       <p className="badge">
         <span>{name}</span>
       </p>
-      <ul>
         {messages.map(message => (
           <li key={message._id.toString()}>
             <span>{message.author}:</span>
@@ -27,7 +26,23 @@ export default function App() {
             <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
           </li>
         ))}
-      </ul>
+        <div className = "card-container">
+          <div className = "card">
+          <div className="card-body">
+            This is some text within a card body.
+          </div>
+          </div>
+          <div className="card">
+          <div className="card-body">
+            This is some text within a card body.
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-body">
+            This is some text within a card body.
+          </div>
+        </div>
+        </div>
       <form onSubmit={handleSendMessage}>
         <input
           value={newMessageText}
