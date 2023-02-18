@@ -15,34 +15,7 @@ export default function App() {
   }
   return (
     <main>
-      <h1>Convex Chat</h1>
-      <p className="badge">
-        <span>{name}</span>
-      </p>
-        {messages.map(message => (
-          <li key={message._id.toString()}>
-            <span>{message.author}:</span>
-            <span>{message.body}</span>
-            <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
-          </li>
-        ))}
-        <div className = "card-container">
-          <div className = "card">
-          <div className="card-body">
-            This is some text within a card body.
-          </div>
-          </div>
-          <div className="card">
-          <div className="card-body">
-            This is some text within a card body.
-          </div>
-        </div>
-        <div className="card">
-          <div className="card-body">
-            This is some text within a card body.
-          </div>
-        </div>
-        </div>
+      <h1>BarterBuddies</h1>
       <form onSubmit={handleSendMessage}>
         <input
           value={newMessageText}
@@ -51,6 +24,25 @@ export default function App() {
         />
         <input type="submit" value="Send" disabled={!newMessageText} />
       </form>
+      <p className="badge">
+        <span>{name}</span>
+      </p>
+      <div className = "card-container">
+        {messages.map(message => (
+          <div key={message._id.toString()}>
+            <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
+            <div className = "card-container">
+            <div className = "card">
+            <div className="card-body">
+            {message.author}
+            {message.body}
+            </div>
+            </div>
+        </div>
+          </div>
+          
+        ))}
+        </div>
     </main>
   );
 }
