@@ -33,6 +33,7 @@ export default defineSchema({
         from:s.string(),
         to:s.string(),
         requestId:s.bigint(),
+        postId:s.bigint()
 
     })
 
