@@ -2,18 +2,13 @@ import { defineSchema, defineTable, s } from "convex/schema";
 
 export default defineSchema({
 
-    messages: defineTable({
-        body: s.string(),
-        user: s.id("users"),
-        chatID:s.string()
-      }),
-
     users: defineTable({
     name: s.string(),
-    username:s.string(),
+   
     email: s.string(),
     description:s.string(),
-    phone: s.string()
+    phone: s.string(),
+    tokenID: s.string()
     }),
 
     forum: defineTable({

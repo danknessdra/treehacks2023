@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMutation, useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
 import LogoutButton from "./logoutButton";
+import { useEffect } from "react";
 const forum = ()=> {
     const messages = useQuery("listMessages") || [];
   
@@ -21,6 +22,24 @@ const forum = ()=> {
       setNewDescription("");
       await sendMessage(newTitleText, newDescription, newTag, name);
     }
+
+
+    const [userId, setUserId] = useState(null);
+    const storeUser = useMutation("storeUsers");
+    // Call the `storeUser` mutation function to store
+    // the current user in the `users` table and return the `Id` value.
+    useEffect(() => {
+      // Store the user in the database.
+      // Recall that `storeUser` gets the user information via the `auth`
+      // object on the server. You don't need to pass anything manually here.
+      async function createUser() {
+        const id = await storeUser();
+        setUserId(id);
+      }
+      createUser();
+      return () => setUserId(null);
+    }, [storeUser]);
+
     return (
       <main>
         <input
