@@ -23,7 +23,7 @@ const forum = ()=> {
       setNewTitleText("");
       setNewTag("");
       setNewDescription("");
-      await sendMessage(newTitleText, newDescription, newTag, user.name, user.email, user.sub);
+      await sendMessage(newTitleText, newDescription, newTag, user.name, user.email, user.pid, user.sub);
     }
 
     const [userId, setUserId] = useState(null);
