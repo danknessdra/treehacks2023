@@ -1,12 +1,11 @@
 
-
 import { useAuth0} from "@auth0/auth0-react";
-import { useQuery } from "../convex/_generated/react";
+import { useQuery, useMutation } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
 const mylistings = () =>{
     const { user } = useAuth0();
     const messages = useQuery("listMessages") || [];
-
+    const deleteMessage = useMutation("deleteMessage");
     return(<main>
         <div className = "card-container">
           {messages.filter(message => message.pid == user.sub).map(message => (
@@ -20,6 +19,7 @@ const mylistings = () =>{
               <br></br>
               Description: {message.description}<br></br>
               Author: {message.author}
+              <button onClick={async () => {await deleteMessage(message._id);} }>Delete</button>
               </div>
           </div>
             </div>
