@@ -125,3 +125,16 @@ input[type="submit"]:disabled,
 button:disabled {
   background-color: rgb(122, 160, 248);
 }
+
+.msg {
+  font-size: 5rem;
+}
+.offer {
+  font-size: .9rem;
+}
+
+.offerRow {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
