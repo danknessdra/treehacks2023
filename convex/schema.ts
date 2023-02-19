@@ -16,7 +16,7 @@ export default defineSchema({
         description:s.string(),
         author:s.string(),
         tags:s.any(),
-
+        active:s.boolean(),
     }),
 
     requests: defineTable({
