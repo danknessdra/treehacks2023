@@ -2,15 +2,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
-const offers = () =>{
-    const messages = useQuery("listMessages") || [];
-  
-    const [newTitleText, setNewTitleText] = useState("");
-    const [newTag, setNewTag] = useState("");
-    const sendMessage = useMutation("sendMessage");
-    const [newDescription, setNewDescription] = useState("");
-  
-    const [name, setNewName] = useState();
+const mylistings = () =>{
 
     
 
@@ -36,4 +28,4 @@ const offers = () =>{
       </main>)
         
     }
-    export default offers;
+    export default mylistings;
