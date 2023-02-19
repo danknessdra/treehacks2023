@@ -107,7 +107,12 @@ const forum = ()=> {
               <br></br>
               Description: {s.description}<br></br>
               Author: {s.author}
-              <button onClick={async () => {await addOffer(message.pid,s.pid,message._id,s._id);} }>Offer</button>
+              <button 
+              onClick={async () => {
+                await addOffer(message.pid,s.pid,message._id,s._id,message.title, message.description, message.tag, message.author, s.title, s.description, s.tag, s.author);
+                handleClose();
+              }
+              }>Offer</button>
               </div>
           </div>
             </div>

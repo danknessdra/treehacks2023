@@ -2,33 +2,37 @@
 import { useAuth0} from "@auth0/auth0-react";
 import { useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
-
+import Arrow from '../images/biarrow.jpg';
 const offers = () =>{
     const offers = useQuery("listOffers") || [];
+    const messages = useQuery("listMessages") || [];
     const { user } = useAuth0();
     console.log(user);
     return(<main>
+      {/* i am so tired - raymond */}
         {offers.filter( s =>s.auth1 == user.sub).map(s => (
-            <div key={s._id.toString()}>
-              <div className = "card">
+          <div className = "theContainer">
+
+            <div className = "card">
               <div className="card-body">
-              Title: {s.title}<br></br>
-              Tags: {s.tag}
+              Title: {s.title1}<br></br>
+              Tags: {s.tag1}
               <br></br>
-              Description: {s.description}<br></br>
-              Author: {s.author}
+              Description: {s.description1}<br></br>
+              Author: {s.author1}
               </div>
           </div>
+          <img src = {Arrow}></img>
           <div className = "card">
               <div className="card-body">
-              Title: {s.title}<br></br>
-              Tags: {s.tag}
+              Title: {s.title2}<br></br>
+              Tags: {s.tag2}
               <br></br>
-              Description: {s.description}<br></br>
-              Author: {s.author}
+              Description: {s.description2}<br></br>
+              Author: {s.author2}
               </div>
           </div>
-            </div>
+          </div>
             
           ))}
 

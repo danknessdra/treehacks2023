@@ -138,3 +138,9 @@ button:disabled {
   justify-content: space-between;
   flex-direction: row;
 }
+
+.theContainer {
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+}
