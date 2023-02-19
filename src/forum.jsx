@@ -1,5 +1,5 @@
 
-
+import { useAuth0} from "@auth0/auth0-react";
 import { useState } from "react";
 import { useMutation, useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
@@ -12,15 +12,13 @@ const forum = ()=> {
     const [newTag, setNewTag] = useState("");
     const sendMessage = useMutation("sendMessage");
     const [newDescription, setNewDescription] = useState("");
-  
-    const [name, setNewName] = useState();
-
+    const { user } = useAuth0();
     async function handleSendMessage(event) {
       event.preventDefault();
       setNewTitleText("");
       setNewTag("");
       setNewDescription("");
-      await sendMessage(newTitleText, newDescription, newTag, name);
+      await sendMessage(newTitleText, newDescription, newTag, user.name, user.sub);
     }
 
 
@@ -42,11 +40,6 @@ const forum = ()=> {
 
     return (
       <main>
-        <input
-            value={name}
-            onChange={event => setNewName(event.target.value)}
-            placeholder="Username"
-          />
         <h1>BarterBuddies</h1>
         <form onSubmit={handleSendMessage}>
           <input
@@ -67,7 +60,7 @@ const forum = ()=> {
           <input type="submit" value="Send"/>
         </form>
         <p className="badge">
-          <span>{name}</span>
+          <span>Welcome, {user.name}!</span>
         </p>
         <div className = "card-container">
           {messages.map(message => (
