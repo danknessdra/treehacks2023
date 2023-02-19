@@ -23,7 +23,7 @@ const forum = ()=> {
       setNewTitleText("");
       setNewTag("");
       setNewDescription("");
-      await sendMessage(newTitleText, newDescription, newTag, user.name, user.sub);
+      await sendMessage(newTitleText, newDescription, newTag, user.name, user.email, user.sub);
     }
 
     const [userId, setUserId] = useState(null);
@@ -77,6 +77,8 @@ const forum = ()=> {
               Description: {message.description}<br></br>
               Author: {message.author}
               <br></br>
+              Email: {message.email}
+              <br></br>
               This is one of your listings!
               </div>
           </div>
@@ -89,6 +91,7 @@ const forum = ()=> {
             <br></br>
             Description: {message.description}<br></br>
             Author: {message.author}
+            Email: {message.email}
             <br></br>
                   <>
                     <button onClick={handleShow}>
@@ -109,7 +112,7 @@ const forum = ()=> {
               Author: {s.author}
               <button 
               onClick={async () => {
-                await addOffer(message.pid,s.pid,message._id,s._id,message.title, message.description, message.tag, message.author, s.title, s.description, s.tag, s.author);
+                await addOffer(message.pid,s.pid,message._id,s._id,message.title, message.description, message.tag, message.author, s.title, s.description, s.tag, s.author, message.email, s.email);
                 handleClose();
               }
               }>Offer</button>

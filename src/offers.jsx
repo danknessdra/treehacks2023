@@ -20,6 +20,8 @@ const offers = () =>{
               <br></br>
               Description: {s.description1}<br></br>
               Author: {s.author1}
+              <br></br>
+              Email: {s.email1}
               </div>
           </div>
           <img src = {Arrow}></img>
@@ -30,6 +32,8 @@ const offers = () =>{
               <br></br>
               Description: {s.description2}<br></br>
               Author: {s.author2}
+              <br></br>
+              Email: {s.email2}
               </div>
           </div>
           </div>
