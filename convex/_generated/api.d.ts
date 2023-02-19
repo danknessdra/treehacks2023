@@ -14,6 +14,7 @@ import type * as addOffer from "../addOffer";
 import type * as deleteMessage from "../deleteMessage";
 import type * as listMessages from "../listMessages";
 import type * as listOffers from "../listOffers";
+import type * as listUser from "../listUser";
 import type * as sendMessage from "../sendMessage";
 import type * as storeUsers from "../storeUsers";
 
@@ -31,6 +32,7 @@ export type API = ApiFromModules<{
   deleteMessage: typeof deleteMessage;
   listMessages: typeof listMessages;
   listOffers: typeof listOffers;
+  listUser: typeof listUser;
   sendMessage: typeof sendMessage;
   storeUsers: typeof storeUsers;
 }>;
