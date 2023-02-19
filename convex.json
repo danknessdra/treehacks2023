@@ -3,5 +3,10 @@
   "team": "danknessdra",
   "prodUrl": "https://shiny-chamois-308.convex.cloud",
   "functions": "convex/",
-  "authInfo": []
+  "authInfo": [
+    {
+      "domain": "https://dev-00hfrym2y1wrk703.us.auth0.com/",
+      "applicationID": "egJvzGBgvSCf2A36w3u6YtJu1vL0RBii"
+    }
+  ]
 }
