@@ -3,6 +3,7 @@ import { useAuth0} from "@auth0/auth0-react";
 import { useState } from "react";
 import { useMutation, useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
+import LogoutButton from "./logoutButton";
 const forum = ()=> {
     const messages = useQuery("listMessages") || [];
   
@@ -74,6 +75,9 @@ const forum = ()=> {
             </li>
             <li className="nav-item">
               <Link className = "nav-link" to = '/mylistings'>My Listings</Link>
+            </li>
+            <li className="nav-item">
+              <LogoutButton/>
             </li>
           </ul>
          </div>
