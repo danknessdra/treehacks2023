@@ -7,7 +7,6 @@ const offers = () =>{
     const offers = useQuery("listOffers") || [];
     const messages = useQuery("listMessages") || [];
     const { user } = useAuth0();
-    console.log(user);
     return(<main>
       {/* i am so tired - raymond */}
         {offers.filter( s =>s.auth1 == user.sub).map(s => (
