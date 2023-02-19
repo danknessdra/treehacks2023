@@ -5,23 +5,19 @@ export default defineSchema({
     messages: defineTable({
         body: s.string(),
         user: s.id("users"),
-        convoID: s.string(),
-        time:s.bigint(),
-        msgId:s.bigint()
+        chatID:s.string()
       }),
 
     users: defineTable({
     name: s.string(),
-    userid: s.bigint(),
+    username:s.string(),
     email: s.string(),
     description:s.string(),
     phone: s.string()
-    }).index("by_token", ["userid"]),
+    }),
 
-    posts: defineTable({
-        postId:s.bigint(),
+    forum: defineTable({
         title:s.string(),
-        date:s.string(),
         description:s.string(),
         author:s.string(),
         tags:s.any(),
@@ -32,8 +28,7 @@ export default defineSchema({
 
         from:s.string(),
         to:s.string(),
-        requestId:s.bigint(),
-        postId:s.bigint()
+        postId:s.bigint(),
 
     })
 
