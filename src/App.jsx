@@ -31,12 +31,11 @@ export default function App() {
         {messages.map(message => (
           <div key={message._id.toString()}>
             <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
-            <div className = "card-container">
             <div className = "card">
             <div className="card-body">
-            {message.author}
+            <img src = "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHUyMzMxNzg4LWltYWdlLXJtNTAzLTAxXzEtbDBqOXFyYzMucG5n.png?s=NjVuBb-Kdw49uxifZtlp1-3P4mypZAScmHj9-qHiDSk" width = "250px" height = "350px"  object-fit = "cover"></img>
+            {message.author}<br></br>
             {message.body}
-            </div>
             </div>
         </div>
           </div>
