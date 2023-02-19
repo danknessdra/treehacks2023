@@ -5,6 +5,7 @@ import { useMutation, useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
 import LogoutButton from "./logoutButton";
 import { useEffect } from "react";
+import Modal from 'react-bootstrap/Modal';
 const forum = ()=> {
     const messages = useQuery("listMessages") || [];
   
@@ -13,6 +14,10 @@ const forum = ()=> {
     const sendMessage = useMutation("sendMessage");
     const [newDescription, setNewDescription] = useState("");
     const { user } = useAuth0();
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const addOffer = useMutation("addOffer");
     async function handleSendMessage(event) {
       event.preventDefault();
       setNewTitleText("");
@@ -20,7 +25,6 @@ const forum = ()=> {
       setNewDescription("");
       await sendMessage(newTitleText, newDescription, newTag, user.name, user.sub);
     }
-
 
     const [userId, setUserId] = useState(null);
     const storeUser = useMutation("storeUsers");
@@ -65,7 +69,6 @@ const forum = ()=> {
           {messages.map(message => (
              (message.pid == user.sub) ?
             <div key={message._id.toString()}>
-              <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
               <div className = "card">
               <div className="card-body">
               Title: {message.title}<br></br>
@@ -79,7 +82,6 @@ const forum = ()=> {
           </div>
             </div> :
             <div key={message._id.toString()}>
-            <span>{new Date(message._creationTime).toLocaleTimeString()}</span>
             <div className = "card">
             <div className="card-body">
             Title: {message.title}<br></br>
@@ -88,7 +90,36 @@ const forum = ()=> {
             Description: {message.description}<br></br>
             Author: {message.author}
             <br></br>
-            <button>Offer</button>
+                  <>
+                    <button onClick={handleShow}>
+                      Offer
+                    </button>
+              <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>What do you want to offer?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>{messages.filter( s =>s.pid == user.sub).map(s => (
+            <div key={s._id.toString()}>
+              <div className = "card">
+              <div className="card-body">
+              Title: {s.title}<br></br>
+              Tags: {s.tag}
+              <br></br>
+              Description: {s.description}<br></br>
+              Author: {s.author}
+              <button onClick={async () => {await addOffer(message.pid,s.pid,message._id,s._id);} }>Offer</button>
+              </div>
+          </div>
+            </div>
+            
+          ))}</Modal.Body>
+                      <Modal.Footer>
+                      </Modal.Footer>
+                    </Modal>
+                  </>
+          
+          
+          
             </div>
         </div>
           </div>

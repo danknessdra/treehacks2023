@@ -129,3 +129,12 @@ button:disabled {
 .msg {
   font-size: 5rem;
 }
+.offer {
+  font-size: .9rem;
+}
+
+.offerRow {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}

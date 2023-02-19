@@ -1,20 +1,37 @@
 
-import { useState } from "react";
-import { useMutation, useQuery } from "../convex/_generated/react";
+import { useAuth0} from "@auth0/auth0-react";
+import { useQuery } from "../convex/_generated/react";
 import {Link} from 'react-router-dom';
+
 const offers = () =>{
-    const messages = useQuery("listMessages") || [];
-  
-    const [newTitleText, setNewTitleText] = useState("");
-    const [newTag, setNewTag] = useState("");
-    const sendMessage = useMutation("sendMessage");
-    const [newDescription, setNewDescription] = useState("");
-  
-    const [name, setNewName] = useState();
-
-    
-
+    const offers = useQuery("listOffers") || [];
+    const { user } = useAuth0();
+    console.log(user);
     return(<main>
+        {offers.filter( s =>s.auth1 == user.sub).map(s => (
+            <div key={s._id.toString()}>
+              <div className = "card">
+              <div className="card-body">
+              Title: {s.title}<br></br>
+              Tags: {s.tag}
+              <br></br>
+              Description: {s.description}<br></br>
+              Author: {s.author}
+              </div>
+          </div>
+          <div className = "card">
+              <div className="card-body">
+              Title: {s.title}<br></br>
+              Tags: {s.tag}
+              <br></br>
+              Description: {s.description}<br></br>
+              Author: {s.author}
+              </div>
+          </div>
+            </div>
+            
+          ))}
+
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
