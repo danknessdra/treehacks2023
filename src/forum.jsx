@@ -10,7 +10,8 @@ const forum = ()=> {
     const sendMessage = useMutation("sendMessage");
     const [newDescription, setNewDescription] = useState("");
   
-    const [name] = useState(() => "User " + Math.floor(Math.random() * 10000));
+    const [name, setNewName] = useState();
+
     async function handleSendMessage(event) {
       event.preventDefault();
       setNewTitleText("");
@@ -20,6 +21,11 @@ const forum = ()=> {
     }
     return (
       <main>
+        <input
+            value={name}
+            onChange={event => setNewName(event.target.value)}
+            placeholder="Username"
+          />
         <h1>BarterBuddies</h1>
         <form onSubmit={handleSendMessage}>
           <input
@@ -49,11 +55,11 @@ const forum = ()=> {
               <div className = "card">
               <div className="card-body">
               {/* <img src = "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvcHUyMzMxNzg4LWltYWdlLXJtNTAzLTAxXzEtbDBqOXFyYzMucG5n.png?s=NjVuBb-Kdw49uxifZtlp1-3P4mypZAScmHj9-qHiDSk" width = "250px" height = "350px"  object-fit = "cover"></img> */}
-              {message.title}<br></br>
-              {message.tag}
+              Title: {message.title}<br></br>
+              Tags: {message.tag}
               <br></br>
-              {message.description}<br></br>
-              {message.author}
+              Description: {message.description}<br></br>
+              Author: {message.author}
               </div>
           </div>
             </div>
