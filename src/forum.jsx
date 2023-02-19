@@ -23,9 +23,8 @@ const forum = ()=> {
       setNewTitleText("");
       setNewTag("");
       setNewDescription("");
-      await sendMessage(newTitleText, newDescription, newTag, user.name, user.email, user.pid, user.sub);
+      await sendMessage(newTitleText, newDescription, newTag, user.name, user.verified_email, user.pid, user.sub);
     }
-
     const [userId, setUserId] = useState(null);
     const storeUser = useMutation("storeUsers");
     console.log("str");
