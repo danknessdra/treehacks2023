@@ -9,7 +9,7 @@ const offers = () =>{
     const { user } = useAuth0();
     return(<main>
       {/* i am so tired - raymond */}
-        {offers.filter( s =>s.auth1 == user.sub).map(s => (
+        {offers.filter( s =>s.email1 == user.email).map(s => (
           <div className = "theContainer">
 
             <div className = "card">

@@ -28,6 +28,8 @@ const forum = ()=> {
 
     const [userId, setUserId] = useState(null);
     const storeUser = useMutation("storeUsers");
+    console.log("str");
+    console.log(user);
     // Call the `storeUser` mutation function to store
     // the current user in the `users` table and return the `Id` value.
     useEffect(() => {
@@ -91,6 +93,7 @@ const forum = ()=> {
             <br></br>
             Description: {message.description}<br></br>
             Author: {message.author}
+            <br></br>
             Email: {message.email}
             <br></br>
                   <>
