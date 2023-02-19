@@ -1,9 +1,8 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Forum from "./forum";
-import Messages from "./messages";
 import Offers from "./offers";
-
+import MyListings from "./mylistings"
 
 
 export default function App() {
@@ -12,7 +11,7 @@ export default function App() {
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Forum />} />
-      <Route path="/messages" element={<Messages />} />
+      <Route path = "/mylistings" element = {<MyListings />} />
       <Route path = "/offers" element = {<Offers />} />
     </Routes>
   </BrowserRouter>
